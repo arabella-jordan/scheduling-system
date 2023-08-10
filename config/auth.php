@@ -64,7 +64,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'events' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Event::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

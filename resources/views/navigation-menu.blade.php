@@ -18,6 +18,12 @@
                     <x-nav-link class="text-white" href="{{ route('user.index') }}" :active="request()->routeIs('user')">
                         User
                     </x-nav-link>
+                    <x-nav-link class="text-white" href="{{ route('event.index') }}" :active="request()->routeIs('event')">
+                        Events
+                    </x-nav-link>
+                    <x-nav-link class="text-white" href="{{ route('room.index') }}" :active="request()->routeIs('room')">
+                        Rooms
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -147,6 +153,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link class="text-slate-300" href="{{ route('user.index') }}" :active="request()->routeIs('user')">
                 User
+            </x-responsive-nav-link>
+            <x-responsive-nav-link class="text-slate-300" href="{{ route('event.index') }}" :active="request()->routeIs('event')">
+                Event
+            </x-responsive-nav-link>
+            <x-responsive-nav-link class="text-slate-300" href="{{ route('room.index') }}" :active="request()->routeIs('room')">
+                Room
             </x-responsive-nav-link>
         </div>
 

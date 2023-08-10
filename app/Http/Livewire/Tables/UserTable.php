@@ -43,6 +43,11 @@ class UserTable extends DataTableComponent
             Column::make("Updated at", "updated_at")
                 ->sortable()
                 ->searchable(),
+            Column::make('Actions')
+            ->label(
+                fn($row, Column $column)  => view('layouts.components.buttons.rows.user-row-buttons')->withRow($row)
+            )
+            ->html(),
         ];
     }
 }

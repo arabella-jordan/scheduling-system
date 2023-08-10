@@ -23,7 +23,7 @@ class Create extends Component
         'firstName' => 'required',
         'middleName' => 'required',
         'lastName' => 'required',
-        'email' => 'required|unique',
+        'email' => 'required',
         'password' => 'required|confirmed',
     ];
 
@@ -45,7 +45,7 @@ class Create extends Component
             if($user->save()){
                 DB::commit();
                 $this->dialog()->success(
-                    $title = 'Profile saved',
+                    $title = 'Profile Saved',
                     $description = 'Your profile was successfully saved'
                 );
             }else{
