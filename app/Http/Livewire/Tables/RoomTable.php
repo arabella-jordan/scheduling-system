@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Tables;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Room;
+use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class RoomTable extends DataTableComponent
 {
@@ -33,12 +34,17 @@ class RoomTable extends DataTableComponent
             Column::make("Capacity", "capacity")
                 ->sortable()
                 ->searchable(),
-            Column::make("Availability", "is_active")
+            BooleanColumn::make("Availability", "is_active")
                 ->sortable(),
             Column::make("Created", "created_at")
                 ->sortable(),
-            Column::make("Updated Time", "updated_at")
+            Column::make("Latest Update at", "updated_at")
                 ->sortable(),
+            Column::make('Actions')
+                ->label(
+                    fn($row, Column $column)  => view('layouts.components.buttons.rows.room-row-button')->withRow($row)
+                )
+                ->html(),
         ];
     }
 }

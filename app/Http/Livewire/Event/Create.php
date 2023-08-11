@@ -16,10 +16,11 @@ class Create extends Component
     public $description;
     public $startDateTime;
     public $endDateTime;
-    public $roomID;
+    public $roomId;
 
     public $rules =[
         'name' => 'required',
+        'roomId'=> 'required',
         'startDateTime' => 'required',
         'endDateTime' => 'required',
     ];
@@ -31,13 +32,12 @@ class Create extends Component
             DB::beginTransaction();
 
             $event = new Event();
-            $room = new Room();
             $event->name = $this->name;
             $event->slug = Str::slug('$name', '-');
             $event->description = $this->description;
             $event->event_start = $this->startDateTime;
             $event->event_end = $this->endDateTime;
-            $event->room_id = $room->room_id;
+            $event->room_id = $this->roomId;
 
             if($event->save()){
                 DB::commit();

@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Event as ControllersEvent;
 use App\Http\Livewire\Event\Create as EventCreate;
+use App\Http\Livewire\Event\Edit as EventEdit;
 use App\Http\Livewire\Event\Index as EventIndex;
 use App\Http\Livewire\Room\Create as RoomCreate;
+use App\Http\Livewire\Room\Edit as RoomEdit;
 use App\Http\Livewire\Room\Index as RoomIndex;
 use App\Http\Livewire\User\Index;
 use Illuminate\Support\Facades\Route;
@@ -44,9 +47,13 @@ Route::prefix('user')->name('user.')->group(function(){
 Route::prefix('event')->name('event.')->group(function(){
     Route::get('index', EventIndex::class)->name('index');
     Route::get('/create', EventCreate::class)->name('create');
+    Route::get('edit/{event}', EventEdit::class)->name('edit');
 });
 
 Route::prefix('room')->name('room.')->group(function(){
     Route::get('index', RoomIndex::class)->name('index');
     Route::get('create', RoomCreate::class)->name('create');
+    Route::get('edit/{room}', RoomEdit::class)->name('edit');
+
 });
+

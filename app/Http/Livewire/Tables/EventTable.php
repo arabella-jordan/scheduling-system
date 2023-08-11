@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Tables;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Event;
+use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class EventTable extends DataTableComponent
 {
@@ -31,9 +32,8 @@ class EventTable extends DataTableComponent
             Column::make("Description", "description")
                 ->sortable()
                 ->searchable(),
-            Column::make("Active", "is_active")
-                ->sortable()
-                ->searchable(),
+            BooleanColumn::make("Availability", "is_active")
+                ->sortable(),
             Column::make("Start Time", "event_start")
                 ->sortable()
                 ->searchable(),
@@ -43,9 +43,14 @@ class EventTable extends DataTableComponent
             Column::make("Created", "created_at")
                 ->sortable()
                 ->searchable(),
-            Column::make("Updated", "updated_at")
+            Column::make("Latest Update At", "updated_at")
                 ->sortable()
                 ->searchable(),
+            Column::make('Actions')
+                ->label(
+                    fn($row, Column $column)  => view('layouts.components.buttons.rows.event-row-button')->withRow($row)
+                )
+                ->html(),
         ];
     }
 }
