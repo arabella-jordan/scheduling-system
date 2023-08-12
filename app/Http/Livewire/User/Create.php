@@ -20,11 +20,11 @@ class Create extends Component
     public $password_confirmation;
 
     public $rules =[
-        'firstName' => 'required',
-        'middleName' => 'required',
-        'lastName' => 'required',
-        'email' => 'required',
-        'password' => 'required|confirmed',
+        'firstName' => 'required|alpha',
+        'lastName' => 'required|alpha',
+        'middleName' => 'alpha',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|confirmed|min:8',
     ];
 
     public function create(){

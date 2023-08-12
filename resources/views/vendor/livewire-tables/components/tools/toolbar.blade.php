@@ -23,7 +23,7 @@
                 <button
                     wire:click="{{ $component->currentlyReorderingIsEnabled() ? 'disableReordering' : 'enableReordering' }}"
                     type="button"
-                    class="inline-flex justify-center items-center w-full md:w-auto px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600">
+                    class="inline-flex justify-center items-center w-full md:w-auto px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600">
                     @if ($component->currentlyReorderingIsEnabled())
                         @lang('Done Reordering')
                     @else
@@ -36,7 +36,7 @@
                 <div class="flex rounded-md shadow-sm">
                     <input wire:model{{ $component->getSearchOptions() }}="{{ $component->getTableName() }}.search"
                         placeholder="{{ __('Search') }}" type="text"
-                        class="block w-full border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 dark:bg-gray-700 dark:text-white dark:border-gray-600 @if ($component->hasSearch()) rounded-none rounded-l-md focus:ring-0 focus:border-gray-300 @else focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md @endif" />
+                        class="block w-full border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 dark:bg-gray-700 dark:text-white dark:border-gray-600 @if ($component->hasSearch()) rounded-none rounded-l-md focus:ring-0 focus:border-gray-300 @else focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 rounded-md @endif" />
 
                     @if ($component->hasSearch())
                         <span wire:click.prevent="clearSearch"
@@ -58,7 +58,7 @@
                     class="relative block md:inline-block text-left">
                     <div>
                         <button type="button"
-                            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
+                            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
                             @if ($component->isFilterLayoutPopover()) x-on:click="open = !open"
                                 aria-haspopup="true"
                                 x-bind:aria-expanded="open"
@@ -68,7 +68,7 @@
 
                             @if ($count = $component->getFilterBadgeCount())
                                 <span
-                                    class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-indigo-100 text-indigo-800 capitalize dark:bg-indigo-200 dark:text-indigo-900">
+                                    class="ml-1 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-slate-100 text-slate-800 capitalize dark:bg-slate-200 dark:text-slate-900">
                                     {{ $count }}
                                 </span>
                             @endif
@@ -103,7 +103,7 @@
                                 <div class="block px-4 py-3 text-sm text-gray-700 dark:text-white" role="menuitem">
                                     <button wire:click.prevent="setFilterDefaults" x-on:click="open = false"
                                         type="button"
-                                        class="w-full inline-flex items-center justify-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:border-gray-500">
+                                        class="w-full inline-flex items-center justify-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:border-gray-500">
                                         @lang('Clear')
                                     </button>
                                 </div>
@@ -135,7 +135,7 @@
                         <div>
                             <span class="rounded-md shadow-sm">
                                 <button x-on:click="open = !open" type="button"
-                                    class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
+                                    class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
                                     aria-haspopup="true" x-bind:aria-expanded="open" aria-expanded="true">
                                     @lang('Bulk Actions')
 
@@ -184,7 +184,7 @@
                         <div>
                             <span class="rounded-md shadow-sm">
                                 <button x-on:click="open = !open" type="button"
-                                    class="inline-flex justify-center px-4 py-2 w-full text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
+                                    class="inline-flex justify-center px-4 py-2 w-full text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm hover:bg-gray-50 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
                                     aria-haspopup="true" x-bind:aria-expanded="open" aria-expanded="true">
                                     @lang('Columns')
 
@@ -212,7 +212,7 @@
                                         <label wire:loading.attr="disabled"
                                             class="inline-flex items-center px-2 py-1 disabled:opacity-50 disabled:cursor-wait">
                                             <input
-                                                class="text-indigo-600 transition duration-150 ease-in-out border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600 disabled:opacity-50 disabled:cursor-wait"
+                                                class="text-slate-600 transition duration-150 ease-in-out border-gray-300 rounded shadow-sm focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600 disabled:opacity-50 disabled:cursor-wait"
                                                 @if ($component->allDefaultVisibleColumnsAreSelected()) checked
                                                     wire:click="deselectAllColumns"
                                                 @else
@@ -229,7 +229,7 @@
                                                 <label wire:loading.attr="disabled" wire:target="selectedColumns"
                                                     class="inline-flex items-center px-2 py-1 disabled:opacity-50 disabled:cursor-wait">
                                                     <input
-                                                        class="text-indigo-600 rounded border-gray-300 shadow-sm transition duration-150 ease-in-out focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600 disabled:opacity-50 disabled:cursor-wait"
+                                                        class="text-slate-600 rounded border-gray-300 shadow-sm transition duration-150 ease-in-out focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-900 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600 dark:focus:bg-gray-600 disabled:opacity-50 disabled:cursor-wait"
                                                         wire:model="selectedColumns" wire:target="selectedColumns"
                                                         wire:loading.attr="disabled" type="checkbox"
                                                         value="{{ $column->getSlug() }}" />
@@ -248,7 +248,7 @@
             @if ($component->paginationIsEnabled() && $component->perPageVisibilityIsEnabled())
                 <div>
                     <select wire:model="perPage" id="perPage"
-                        class="block w-full border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                        class="block w-full border-gray-300 rounded-md shadow-sm transition duration-150 ease-in-out sm:text-sm sm:leading-5 focus:border-slate-300 focus:ring focus:ring-slate-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white dark:border-gray-600">
                         @foreach ($component->getPerPageAccepted() as $item)
                             <option value="{{ $item }}"
                                 wire:key="per-page-{{ $item }}-{{ $component->getTableName() }}">

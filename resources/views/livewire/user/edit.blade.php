@@ -3,10 +3,11 @@
         <h2 class="text-center">Edit User</h2>
 
         <div>
-            <x-ui-input class="mb-5" label="First Name" placeholder="First Name" wire:model="firstName" />
-            <x-ui-input class="mb-5" label="Last Name" placeholder="Last Name" wire:model="lastName" />
-            <x-ui-input class="mb-5" label="Middle Name" placeholder="Last Name" wire:model="middleName" />
-            <x-ui-input class="mb-5" label="Email" placeholder="email@email.com" wire:model="email" />
+            <x-ui-input class="mb-5" label="First Name" wire:model="firstName" />
+            <x-ui-input class="mb-5" label="Last Name" wire:model="lastName" />
+            <x-ui-input class="mb-5" label="Middle Name" wire:model="middleName" />
+            <x-ui-input class="mb-5" label="Email" type="email" wire:model="email" />
+            <x-ui-inputs.password class="mb-5" label="Password" type="password" wire:model="password" />
             <x-ui-button class="w-full text-white bg-gradient-to-r from-red-500 to-red-700" label="Save" wire:click="update({{$user->id}})" />
         </div>
     </div>

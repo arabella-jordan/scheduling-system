@@ -45,6 +45,7 @@ class Create extends Component
                     $title = 'Event Saved',
                     $description = "The event was successfully saved."
                 );
+
             }
             else{
                 DB::rollback();

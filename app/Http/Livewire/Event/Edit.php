@@ -43,7 +43,6 @@ class Edit extends Component
                     'required',
                     Rule::unique('events', 'id'),
                 ],
-                'description' => 'required',
                 'roomId' => 'required',
                 'startDateTime' => 'required',
                 'endDateTime' =>'required',

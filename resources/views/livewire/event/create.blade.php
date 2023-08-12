@@ -13,8 +13,20 @@
                 option-label="name"
                 option-value="id"
             />
-            <x-ui-datetime-picker class="mb-5" label="Start of Event" placeholder="MM-DD-YYYY" display-format="MM-DD-YYYY HH:mm" wire:model="startDateTime" />
-            <x-ui-datetime-picker class="mb-5" label="End of Event" placeholder="MM-DD-YYYY" display-format="MM-DD-YYYY HH:mm" wire:model="endDateTime" />
+            <x-ui-datetime-picker class="mb-5"
+                label="Start of Event"
+                :min="now()"
+                placeholder="MM-DD-YYYY HH:mm"
+                display-format="MM-DD-YYYY HH:mm"
+                wire:model="startDateTime"
+            />
+            <x-ui-datetime-picker class="mb-5"
+                label="End of Event"
+                :min="now()->addMinutes(5)"
+                placeholder="MM-DD-YYYY HH:mm"
+                display-format="MM-DD-YYYY HH:mm"
+                wire:model="endDateTime"
+            />
             <x-ui-button class="w-full text-white bg-gradient-to-r from-red-500 to-red-700" label="Save Event" wire:click="create" />
         </div>
     </div>
