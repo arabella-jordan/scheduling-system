@@ -15,14 +15,13 @@
             />
             <x-ui-datetime-picker class="mb-5"
                 label="Start of Event"
-                :min="now()"
+                :min="now()->addMinutes(1)"
                 placeholder="MM-DD-YYYY HH:mm"
                 display-format="MM-DD-YYYY HH:mm"
                 wire:model="startDateTime"
             />
             <x-ui-datetime-picker class="mb-5"
                 label="End of Event"
-                :min="now()->addMinutes(5)"
                 placeholder="MM-DD-YYYY HH:mm"
                 display-format="MM-DD-YYYY HH:mm"
                 wire:model="endDateTime"

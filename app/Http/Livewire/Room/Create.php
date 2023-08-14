@@ -17,7 +17,7 @@ class Create extends Component
 
     public $rules =[
         'name' => 'required',
-        'capacity' => 'required',
+        'capacity' => 'required|integer|gt:0',
     ];
 
     public function create(){

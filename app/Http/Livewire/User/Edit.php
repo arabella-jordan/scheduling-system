@@ -28,9 +28,6 @@ class Edit extends Component
     //   'email' => 'required|unique',
     //];
 
-    public $rules =[
-        'email' => 'required|emails',
-    ];
 
 
     //mount function only called once everytime for rendering components
@@ -40,7 +37,6 @@ class Edit extends Component
         $this->middleName = $user->middle_name;
         $this->lastName = $user->Last_name;
         $this->email = $user->email;
-        $this->password = Hash::make($user->password);
     }
 
     public function update($id){
@@ -60,13 +56,13 @@ class Edit extends Component
                 'lastName' => 'required|alpha',
                 'email' => [
                     'required',
+                    'email',
                     Rule::unique('users', 'email')->ignore($this->user->id),
                 ],
                 'password' => 'required|min:8',
             ],
         )->validate();
 
-            $this->validate();
         try{
             DB::beginTransaction();
 

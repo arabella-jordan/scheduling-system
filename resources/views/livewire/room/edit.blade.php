@@ -5,7 +5,14 @@
         <div>
             <x-ui-input class="mb-5" label="Room Name" placeholder="Room Name" wire:model="name" />
             <x-ui-textarea class="mb-5" label="Room Description" placeholder="Description" wire:model="description" />
-            <x-ui-inputs.number class="mb-5" label="Capacity" wire:model="capacity" />
+            <x-ui-inputs.number class="mb-5"
+                placeholder="10"
+                x-hold.click.repeat.200ms="count--" icon="minus"
+                x-hold.click.repeat.200ms="count++" icon="plus"
+                min="1"
+                label="Capacity"
+                wire:model="capacity"
+            />
             <x-ui-button class="w-full text-white bg-gradient-to-r from-red-500 to-red-700" label="Save" wire:click="update({{$room->id}})" />
         </div>
     </div>

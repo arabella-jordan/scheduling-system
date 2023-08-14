@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.11",
         "rappasoft/laravel-livewire-tables": "^2.15",
+        "spatie/laravel-dashboard": "^2.1",
         "wireui/wireui": "^1.17"
     },
     "require-dev": {

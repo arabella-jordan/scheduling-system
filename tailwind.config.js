@@ -6,6 +6,7 @@ import typography from '@tailwindcss/typography';
 export default {
     presets: [
         require('./vendor/wireui/wireui/tailwind.config.js')
+
     ],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
@@ -27,4 +28,5 @@ export default {
     },
 
     plugins: [forms, typography],
+
 };

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Event as ControllersEvent;
+use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Event\Create as EventCreate;
 use App\Http\Livewire\Event\Edit as EventEdit;
 use App\Http\Livewire\Event\Index as EventIndex;

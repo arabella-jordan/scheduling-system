@@ -5,7 +5,10 @@ namespace App\Http\Livewire\Tables;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Event;
+use App\Models\Room;
 use Carbon\Carbon;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Facades\DB;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
 
 class EventTable extends DataTableComponent
@@ -18,12 +21,17 @@ class EventTable extends DataTableComponent
 
     public function configure(): void
     {
+        $this->setDefaultSort('event_start', 'asc');
+
         $this->setPrimaryKey('id');
 
         $this->setConfigurableAreas([
             'toolbar-left-start' => 'layouts.components.buttons.event-table-buttons',
+            'toolbar-left-end' => 'layouts.components.buttons.event-calendar-button'
         ]);
+
     }
+
 
     public function columns(): array
     {
@@ -33,6 +41,7 @@ class EventTable extends DataTableComponent
         $event->created_at = $this->createdDateTime;
         $event->updated_at = $this->updatedDateTime;
 
+
         //=====table formatting=====
         return [
             Column::make('Actions')
@@ -40,17 +49,17 @@ class EventTable extends DataTableComponent
                     fn($row, Column $column)  => view('layouts.components.buttons.rows.event-row-button')->withRow($row)
                 )
                 ->html(),
-            Column::make("Room ID", "id")
-                ->sortable()
-                ->searchable(),
             Column::make("Name", "name")
                 ->sortable()
                 ->searchable(),
             Column::make("Description", "description")
                 ->sortable()
                 ->searchable(),
-            BooleanColumn::make("Activity", "is_active")
-                ->sortable(),
+            Column::make("Room", "room.name")
+                ->sortable()
+                ->searchable(),
+            // BooleanColumn::make("Activity", "is_active")
+            //     ->sortable(),
             Column::make("Start Time", "event_start")
                 ->format(
                     fn($startDateTime, $row, Column $column) => Carbon::parse($startDateTime)->toDayDateTimeString()
@@ -73,6 +82,9 @@ class EventTable extends DataTableComponent
                 ->format(
                     fn($updatedDateTime, $row, Column $column) => Carbon::parse($updatedDateTime)->format('g:i a F d, Y')
                 )
+                ->sortable()
+                ->searchable(),
+            Column::make("Event ID", "id")
                 ->sortable()
                 ->searchable(),
 

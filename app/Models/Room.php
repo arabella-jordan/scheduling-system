@@ -10,5 +10,22 @@ class Room extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'capacity',
+        'is_active',
+
+    ];
+
+
+    public function events(): HasMany{
+
+        return $this->hasMany(Event::class, 'room_id');
+
+
+
+    }
+
 
 }

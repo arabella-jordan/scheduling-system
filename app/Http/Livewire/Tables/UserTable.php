@@ -17,6 +17,10 @@ class UserTable extends DataTableComponent
     {
         $this->setPrimaryKey('id');
 
+        // default sort
+        $this->setDefaultSort('last_name', 'asc');
+
+        //create button
         $this->setConfigurableAreas([
             'toolbar-left-start' => 'layouts.components.buttons.user-table-buttons',
         ]);
@@ -36,7 +40,7 @@ class UserTable extends DataTableComponent
                     fn($row, Column $column)  => view('layouts.components.buttons.rows.user-row-buttons')->withRow($row)
                 )
                 ->html(),
-            Column::make("Id", "id")
+            Column::make("Last name", "last_name")
                 ->sortable()
                 ->searchable(),
             Column::make("First name", "first_name")
@@ -45,9 +49,7 @@ class UserTable extends DataTableComponent
             Column::make("Middle name", "middle_name")
                 ->sortable()
                 ->searchable(),
-            Column::make("Last name", "last_name")
-                ->sortable()
-                ->searchable(),
+
             Column::make("Email", "email")
                 ->sortable()
                 ->searchable(),
@@ -61,6 +63,9 @@ class UserTable extends DataTableComponent
                 ->format(
                     fn($updatedDateTime, $row, Column $column) => Carbon::parse($updatedDateTime)->format('g:i a F d, Y')
                 )
+                ->sortable()
+                ->searchable(),
+            Column::make("Id", "id")
                 ->sortable()
                 ->searchable(),
         ];

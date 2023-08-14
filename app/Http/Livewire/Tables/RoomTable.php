@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Tables;
 
+use App\Models\Event;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Room;
@@ -18,6 +19,9 @@ class RoomTable extends DataTableComponent
     {
         $this->setPrimaryKey('id');
 
+        // default sort
+        $this->setDefaultSort('name', 'asc');
+
         $this->setConfigurableAreas([
             'toolbar-left-start' => 'layouts.components.buttons.room-table-buttons',
         ]);
@@ -29,6 +33,7 @@ class RoomTable extends DataTableComponent
         $room->created_at = $this->createdDateTime;
         $room->updated_at = $this->updatedDateTime;
 
+
         //=====table formatting=====
         return [
             Column::make('Actions')
@@ -36,9 +41,6 @@ class RoomTable extends DataTableComponent
                     fn($row, Column $column)  => view('layouts.components.buttons.rows.room-row-button')->withRow($row)
                 )
                 ->html(),
-            Column::make("Room ID", "id")
-                ->sortable()
-                ->searchable(),
             Column::make("Room", "name")
                 ->sortable()
                 ->searchable(),
@@ -47,8 +49,8 @@ class RoomTable extends DataTableComponent
             Column::make("Capacity", "capacity")
                 ->sortable()
                 ->searchable(),
-            BooleanColumn::make("Availability", "is_active")
-                ->sortable(),
+            // BooleanColumn::make("Availability", "is_active")
+            //     ->sortable(),
             Column::make("Created", "created_at")
                 ->format(
                     fn($createdDateTime, $row, Column $column) => Carbon::parse($createdDateTime)->format('g:i a F d, Y')
@@ -59,6 +61,9 @@ class RoomTable extends DataTableComponent
                     fn($updatedDateTime, $row, Column $column) => Carbon::parse($updatedDateTime)->format('g:i a F d, Y')
                 )
                 ->sortable(),
+            Column::make("Room ID", "id")
+                ->sortable()
+                ->searchable(),
         ];
     }
 }

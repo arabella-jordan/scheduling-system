@@ -8,7 +8,7 @@
             <x-ui-input class="mb-5" label="Middle Name" wire:model="middleName" />
             <x-ui-input class="mb-5" label="Email" type="email" wire:model="email" />
             <x-ui-inputs.password class="mb-5" label="Password" type="password" wire:model="password" />
-            <x-ui-button class="w-full text-white bg-gradient-to-r from-red-500 to-red-700" label="Save" wire:click="update({{$user->id}})" />
+            <x-ui-button class="w-full text-white bg-gradient-to-r from-red-500 to-red-700" label="Save" wire:click="components.modals.user-edit-confirmation" />
         </div>
     </div>
 </div>

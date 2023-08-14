@@ -40,7 +40,7 @@ class Edit extends Component
                     Rule::unique('rooms', 'id'),
                 ],
                 'description' => 'required',
-                'capacity' => 'required',
+                'capacity' => 'required|integer|gt:0',
             ],
         )->validate();
 
